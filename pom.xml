@@ -76,7 +76,7 @@
 									<goal>process-asciidoc</goal>
 								</goals>
 								<configuration>
-									<backend>html5</backend>
+									<backend>xhtml</backend>
 									<sourceHighlighter>coderay</sourceHighlighter>
 									<attributes>
 										<sectnums>true</sectnums>
@@ -105,12 +105,12 @@
 									<goal>convert</goal>
 								</goals>
 								<configuration>
-									<outputDirectory>${project.build.outputDirectory}/pdf</outputDirectory>
+									<outputDirectory>${basedir}/target/docs/pdf</outputDirectory>
 									<sourceDirectory>${basedir}/target/docs/asciidoc</sourceDirectory>
 									<sourceMimeType>application/xhtml+xml</sourceMimeType>
 									<targetMimeType>application/pdf</targetMimeType>
 									<outputFileending>pdf</outputFileending>
-									<sourceDocumentExtensions>xhtml</sourceDocumentExtensions>
+									<sourceDocumentExtensions>html</sourceDocumentExtensions>
 								</configuration>
 							</execution>
 						</executions>
