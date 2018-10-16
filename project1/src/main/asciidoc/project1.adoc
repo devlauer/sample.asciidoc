@@ -1,0 +1,6 @@
+This is a sample asciidoc file in project1
+
+[source,java]
+----
+include::../java/de/elnarion/sample/asciidoc/TestAsciidocClass.java[]
+----
