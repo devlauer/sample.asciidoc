@@ -25,6 +25,40 @@
 	</modules>
 
 	<build>
+		<pluginManagement>
+			<plugins>
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.asciidoctor</groupId>
+										<artifactId>
+											asciidoctor-maven-plugin
+										</artifactId>
+										<versionRange>
+											[1.5.6,)
+										</versionRange>
+										<goals>
+											<goal>process-asciidoc</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 	</build>
 	<profiles>
 		<profile>
@@ -76,7 +110,7 @@
 									<goal>process-asciidoc</goal>
 								</goals>
 								<configuration>
-									<backend>xhtml</backend>
+									<backend>xhtml5</backend>
 									<sourceHighlighter>coderay</sourceHighlighter>
 									<attributes>
 										<sectnums>true</sectnums>
@@ -96,7 +130,7 @@
 					<plugin>
 						<artifactId>docconverter-maven-plugin</artifactId>
 						<groupId>de.elnarion.maven</groupId>
-						<version>0.9.0</version>
+						<version>0.9.4-SNAPSHOT</version>
 						<executions>
 							<execution>
 								<id>html2pdf</id>
@@ -118,7 +152,7 @@
 							<dependency>
 								<groupId>de.elnarion.util</groupId>
 								<artifactId>docconverter-html2pdf</artifactId>
-								<version>0.9.0</version>
+								<version>0.9.4-SNAPSHOT</version>
 							</dependency>
 						</dependencies>
 					</plugin>
@@ -138,7 +172,7 @@
 					<plugin>
 						<artifactId>docconverter-maven-plugin</artifactId>
 						<groupId>de.elnarion.maven</groupId>
-						<version>0.9.0</version>
+						<version>0.9.4-SNAPSHOT</version>
 						<executions>
 							<execution>
 								<id>adoc2adoc</id>
@@ -163,7 +197,7 @@
 							<dependency>
 								<groupId>de.elnarion.util</groupId>
 								<artifactId>docconverter-adoc2adoc</artifactId>
-								<version>0.9.0</version>
+								<version>0.9.4-SNAPSHOT</version>
 							</dependency>
 						</dependencies>
 					</plugin>
