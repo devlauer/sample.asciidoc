@@ -14,6 +14,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<asciidoctor.maven.plugin.version>1.5.6</asciidoctor.maven.plugin.version>
 		<asciidoctorj.version>1.5.6</asciidoctorj.version>
+		<asciidoclet.version>1.5.4</asciidoclet.version>
 		<jruby.version>1.7.26</jruby.version>
 		<asciidoctorj.diagram.version>1.5.4.1</asciidoctorj.diagram.version>
 	</properties>
@@ -246,6 +247,69 @@
 								</goals>
 								<configuration>
 									<includeClassifiers>asciidoc</includeClassifiers>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>javadoc-from-asciidoc</id>
+			<activation>
+				<file>
+					<exists>${basedir}/.mvn/active-profiles/javadoc-from-asciidoc</exists>
+				</file>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-javadoc-plugin</artifactId>
+						<version>2.9</version>
+						<executions>
+							<!-- Exports javadocs containing AsciiDoc to HTML -->
+							<execution>
+								<id>html</id>
+								<phase>package</phase>
+								<goals>
+									<goal>javadoc</goal>
+								</goals>
+								<configuration>
+									<source>1.7</source>
+									<doclet>org.asciidoctor.Asciidoclet</doclet>
+									<docletArtifact>
+										<groupId>org.asciidoctor</groupId>
+										<artifactId>asciidoclet</artifactId>
+										<version>${asciidoclet.version}</version>
+									</docletArtifact>
+									<overview>src/main/java/overview.adoc</overview>
+									<additionalparam>
+										--base-dir ${project.basedir}
+										--attribute
+										"name=${project.name}"
+										--attribute "version=${project.version}"
+										--attribute "title-link=http://example.com[${project.name}${project.version}]"
+									</additionalparam>
+								</configuration>
+							</execution>
+							<!-- Exports javadocs containing AsciiDoc to AsciiDoc files -->
+							<execution>
+								<id>asciidoc</id>
+								<phase>package</phase>
+								<goals>
+									<goal>javadoc</goal>
+								</goals>
+								<configuration>
+									<doclet>org.uniknow.asciidoc.ExportDoclet</doclet>
+									<docletArtifact>
+										<groupId>org.uniknow.asciidoc</groupId>
+										<artifactId>exportdoclet</artifactId>
+										<version>0.1.14</version>
+									</docletArtifact>
+									<useStandardDocletOptions>true</useStandardDocletOptions>
+									<destDir>javadoc</destDir>
+									<reportOutputDirectory>${basedir}/target/adoc</reportOutputDirectory>
 								</configuration>
 							</execution>
 						</executions>
