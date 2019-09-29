@@ -4,7 +4,7 @@ package de.elnarion.sample.asciidoc;
  * The Class TestAsciidocClass has a asciidoc javadoc.
  * 
  * * bullet
- * * next bullet
+ * * next bullet 
  */
 public class TestAsciidocClass {
 
