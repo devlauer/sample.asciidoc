@@ -28,12 +28,12 @@
 		<dependency>
 			<groupId>de.elnarion.util</groupId>
 			<artifactId>docconverter-html2pdf</artifactId>
-			<version>0.9.3-SNAPSHOT</version>
+			<version>0.10.0</version>
 		</dependency>
 		<dependency>
 			<groupId>de.elnarion.util</groupId>
 			<artifactId>docconverter-api</artifactId>
-			<version>0.9.3-SNAPSHOT</version>
+			<version>0.10.0</version>
 		</dependency>
 	</dependencies>
 
@@ -45,7 +45,7 @@
 					<plugin>
 						<artifactId>docconverter-maven-plugin</artifactId>
 						<groupId>de.elnarion.maven</groupId>
-						<version>0.9.2</version>
+						<version>0.10.0</version>
 						<executions>
 							<execution>
 								<id>html2pdf</id>
@@ -67,7 +67,7 @@
 							<dependency>
 								<groupId>de.elnarion.util</groupId>
 								<artifactId>docconverter-html2pdf</artifactId>
-								<version>0.9.2</version>
+								<version>0.10.0</version>
 							</dependency>
 						</dependencies>
 					</plugin>

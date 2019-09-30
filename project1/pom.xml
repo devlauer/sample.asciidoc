@@ -16,7 +16,7 @@
 			<plugin>
 				<artifactId>plantuml-generator-maven-plugin</artifactId>
 				<groupId>de.elnarion.maven</groupId>
-				<version>0.9.1</version>
+				<version>1.0.0</version>
 				<executions>
 					<execution>
 						<id>generate-simple-diagram</id>
@@ -25,12 +25,11 @@
 						</goals>
 						<phase>generate-test-sources</phase>
 						<configuration>
-							<outputFilename>testdiagram1.txt</outputFilename>
-							<scanPackages>
-								<scanPackage>de.elnarion.sample.domain</scanPackage>
-							</scanPackages>
+							<outputFilename>testdiagram1.adoc</outputFilename>
+							<whitelistRegexp>.*Child.*</whitelistRegexp>
 							<hideFields>true</hideFields>
 							<hideMethods>true</hideMethods>
+							<enableAsciidocWrapper>true</enableAsciidocWrapper>
 						</configuration>
 					</execution>
 				</executions>

@@ -2,13 +2,12 @@ This is a sample asciidoc file in project1
 
 [source,java]
 ----
-include::../java/de/elnarion/sample/asciidoc/TestAsciidocClass.java[]
+include::../../../src/main/java/de/elnarion/sample/asciidoc/TestAsciidocClass.java[]
 ----
 
-[plantuml, sample-plantuml-diagram, alt="Class diagram"]
-----
-include::../../../target/generated-docs/testdiagram1.txt[]
-----
+
+include::../../../target/generated-docs/testdiagram1.adoc[]
+
 
 with some diagram
 
