@@ -6,6 +6,9 @@ package de.elnarion.sample.domain;
 public class ChildA extends BaseDomainClass{
 
 	private UtilClass util;
+	private static long test;
+	protected long test2;
+	public long test3;
 
 	/**
 	 * Gets the util.

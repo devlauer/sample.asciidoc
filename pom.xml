@@ -153,7 +153,7 @@
 							<dependency>
 								<groupId>de.elnarion.util</groupId>
 								<artifactId>docconverter-html2pdf</artifactId>
-								<version>0.9.4-SNAPSHOT</version>
+								<version>0.10.0</version>
 							</dependency>
 						</dependencies>
 					</plugin>
