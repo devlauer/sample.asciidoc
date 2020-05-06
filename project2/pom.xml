@@ -1,6 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>project2</artifactId>
 	<packaging>jar</packaging>
@@ -10,5 +8,39 @@
 		<relativePath>../pom.xml</relativePath>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
+
+	<dependencies>
+		<dependency>
+			<artifactId>project1</artifactId>
+			<groupId>${project.groupId}</groupId>
+			<version>${project.version}</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>plantuml-generator-maven-plugin</artifactId>
+				<groupId>de.elnarion.maven</groupId>
+				<version>1.1.2</version>
+				<executions>
+					<execution>
+						<id>generate-simple-diagram</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<phase>generate-test-sources</phase>
+						<configuration>
+							<outputFilename>testdiagram1.adoc</outputFilename>
+							<scanPackages>
+								<scanPackage>de.elnarion.sample.domain</scanPackage>
+							</scanPackages>
+							<enableAsciidocWrapper>true</enableAsciidocWrapper>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>
