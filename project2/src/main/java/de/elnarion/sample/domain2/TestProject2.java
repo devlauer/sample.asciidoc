@@ -1,4 +1,7 @@
-package de.elnarion.sample.domain;
+package de.elnarion.sample.domain2;
+
+import de.elnarion.sample.domain.BaseDomainClass;
+import de.elnarion.sample.domain.ChildA;
 
 public class TestProject2 {
     public BaseDomainClass baseDomainClassField;
