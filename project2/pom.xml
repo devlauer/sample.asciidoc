@@ -31,12 +31,11 @@
 						</goals>
 						<phase>generate-test-sources</phase>
 						<configuration>
-							<outputFilename>testdiagram1.adoc</outputFilename>
+							<outputFilename>testdiagram1.puml</outputFilename>
 							<scanPackages>
-								<scanPackage>de.elnarion.sample.domain</scanPackage>
-								<scanPackage>de.elnarion.sample.domain2</scanPackage>
+								<scanPackage>de.elnarion</scanPackage>
 							</scanPackages>
-							<enableAsciidocWrapper>true</enableAsciidocWrapper>
+							<whitelistRegexp>.*</whitelistRegexp>
 						</configuration>
 					</execution>
 				</executions>
