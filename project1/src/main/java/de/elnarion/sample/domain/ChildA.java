@@ -1,8 +1,11 @@
 package de.elnarion.sample.domain;
 
+import javax.persistence.Table;
+
 /**
  * The Class ChildA.
  */
+@Table(name = "childatab", schema = "schema")
 public class ChildA extends BaseDomainClass{
 
 	private UtilClass util;
