@@ -1,0 +1,50 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>project4</artifactId>
+	<packaging>jar</packaging>
+	<parent>
+		<artifactId>sample.asciidoc</artifactId>
+		<groupId>de.elnarion.sample</groupId>
+		<relativePath>../pom.xml</relativePath>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<dependencies>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>plantuml-generator-maven-plugin</artifactId>
+				<groupId>de.elnarion.maven</groupId>
+				<version>1.1.2</version>
+				<executions>
+					<execution>
+						<id>generate-simple-diagram</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<phase>generate-test-sources</phase>
+						<configuration>
+							<outputDirectory>target/generated-docs</outputDirectory>
+							<outputFilename>commands.plantuml</outputFilename>
+							<scanPackages>
+								<scanPackage>com.xx.service.commands</scanPackage>
+							</scanPackages>
+							<hideFields>false</hideFields>
+							<hideMethods>false</hideMethods>
+							<maxVisibilityFields>PRIVATE</maxVisibilityFields>
+							<maxVisibilityMethods>PUBLIC</maxVisibilityMethods>
+							<methodBlacklistRegexp>(hashCode|equals)</methodBlacklistRegexp>
+							<blacklistRegexp>.*\$.*|com.xx.common.converter.BeanConverter|.*\.metamodel\..*</blacklistRegexp>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+	</build>
+
+</project>
