@@ -19,7 +19,7 @@
 			<plugin>
 				<artifactId>plantuml-generator-maven-plugin</artifactId>
 				<groupId>de.elnarion.maven</groupId>
-				<version>1.1.2</version>
+				<version>1.2.0</version>
 				<executions>
 					<execution>
 						<id>generate-simple-diagram</id>
