@@ -1,6 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>project1</artifactId>
 	<packaging>jar</packaging>
@@ -24,7 +22,7 @@
 			<plugin>
 				<artifactId>plantuml-generator-maven-plugin</artifactId>
 				<groupId>de.elnarion.maven</groupId>
-				<version>1.2.0</version>
+				<version>${plantumlgenerator.version}</version>
 				<executions>
 					<execution>
 						<id>generate-simple-diagram</id>
@@ -33,11 +31,14 @@
 						</goals>
 						<phase>generate-test-sources</phase>
 						<configuration>
-							<outputFilename>testdiagram1.adoc</outputFilename>
+							<additionalPlantUmlConfigs>
+								<additionalPlantUmlConfigs>left to right direction</additionalPlantUmlConfigs>
+							</additionalPlantUmlConfigs>							
+							<outputFilename>testdiagram1.txt</outputFilename>
 							<whitelistRegexp>.*Child.*</whitelistRegexp>
 							<hideFields>true</hideFields>
 							<hideMethods>true</hideMethods>
-							<enableAsciidocWrapper>true</enableAsciidocWrapper>
+							<enableAsciidocWrapper>false</enableAsciidocWrapper>
 							<fieldClassifierListToIgnore>
 								<fieldClassifierListToIgnore>STATIC</fieldClassifierListToIgnore>
 							</fieldClassifierListToIgnore>

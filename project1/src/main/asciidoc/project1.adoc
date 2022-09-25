@@ -5,8 +5,10 @@ This is a sample asciidoc file in project1
 include::../../../src/main/java/de/elnarion/sample/asciidoc/TestAsciidocClass.java[]
 ----
 
-
-include::../../../target/generated-docs/testdiagram1.adoc[]
+[plantuml,testdiagram1]
+----
+include::../../../target/generated-docs/testdiagram1.txt[]
+----
 
 
 with some diagram
