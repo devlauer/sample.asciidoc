@@ -24,6 +24,11 @@
 			<classifier>asciidoc</classifier>
 			<version>${project.version}</version>
 		</dependency>
+							<dependency>
+								<groupId>org.asciidoctor</groupId>
+								<artifactId>asciidoctorj</artifactId>
+								<version>2.5.6</version>
+							</dependency>
 
 	</dependencies>
 
