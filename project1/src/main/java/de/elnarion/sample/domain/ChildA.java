@@ -9,6 +9,7 @@ import javax.persistence.Table;
 public class ChildA extends BaseDomainClass{
 
 	private UtilClass util;
+	@SuppressWarnings("unused")
 	private static long test;
 	protected long test2;
 	public long test3;
