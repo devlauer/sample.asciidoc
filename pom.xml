@@ -15,7 +15,7 @@
 		<asciidoclet.version>2.0.0</asciidoclet.version>
 		<jruby.version>9.3.8.0</jruby.version>
 		<asciidoctorj.diagram.version>2.2.3</asciidoctorj.diagram.version>
-		<docconverter.version>1.0.1</docconverter.version>
+		<docconverter.version>1.0.2</docconverter.version>
 		<plantumlgenerator.version>1.5.4</plantumlgenerator.version>
 	</properties>
 
