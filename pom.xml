@@ -17,6 +17,8 @@
 		<asciidoctorj.diagram.version>2.2.3</asciidoctorj.diagram.version>
 		<docconverter.version>1.0.2</docconverter.version>
 		<plantumlgenerator.version>1.5.4</plantumlgenerator.version>
+		<asciidoc-extensions.version>1.0.0</asciidoc-extensions.version>
+		<remoteplantuml>http://www.plantuml.com/plantuml/png/</remoteplantuml>
 	</properties>
 
 	<modules>
@@ -60,6 +62,16 @@
 								<artifactId>asciidoctorj-diagram</artifactId>
 								<version>${asciidoctorj.diagram.version}</version>
 							</dependency>
+							<dependency>
+								<groupId>de.elnarion.asciidoc</groupId>
+								<artifactId>asciidoc-extension-multiinclude</artifactId>
+								<version>${asciidoc-extensions.version}</version>
+							</dependency>
+							<dependency>
+								<groupId>de.elnarion.asciidoc</groupId>
+								<artifactId>asciidoc-extension-remoteplantuml</artifactId>
+								<version>${asciidoc-extensions.version}</version>
+							</dependency>
 						</dependencies>
 						<configuration>
 							<sourceDirectory>src/main/asciidoc</sourceDirectory>
@@ -67,6 +79,9 @@
 							<requires>
 								<require>asciidoctor-diagram</require>
 							</requires>
+							<attributes>
+								<remote_plantuml_url>${remoteplantuml}</remote_plantuml_url>
+							</attributes>
 						</configuration>
 						<executions>
 							<execution>
@@ -248,6 +263,18 @@
 										<artifactId>asciidoclet</artifactId>
 										<version>${asciidoclet.version}</version>
 									</docletArtifact>
+									<additionalDependencies>
+										<dependency>
+											<groupId>de.elnarion.asciidoc</groupId>
+											<artifactId>asciidoc-extension-multiinclude</artifactId>
+											<version>${asciidoc-extensions.version}</version>
+										</dependency>
+										<dependency>
+											<groupId>de.elnarion.asciidoc</groupId>
+											<artifactId>asciidoc-extension-remoteplantuml</artifactId>
+											<version>${asciidoc-extensions.version}</version>
+										</dependency>
+									</additionalDependencies>
 									<overview>src/main/java/overview.adoc</overview>
 									<additionalparam>
 										--base-dir ${project.basedir}
@@ -255,6 +282,7 @@
 										"name=${project.name}"
 										--attribute "version=${project.version}"
 										--attribute "title-link=http://example.com[${project.name}${project.version}]"
+										--attribute "remote_plantuml_url=${remoteplantuml}"
 									</additionalparam>
 								</configuration>
 							</execution>

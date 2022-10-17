@@ -13,3 +13,7 @@ include::../../../target/generated-docs/testdiagram1.txt[]
 
 with some diagram
 
+include multiple files
+
+include::./**/_testinclude.adoc[]
+

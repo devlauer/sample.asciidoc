@@ -1,3 +1,8 @@
 include::../../../target/dependency/project1.adoc[]
 
 include::../../../target/dependency/project2.adoc[]  
+
+
+Included via final.adoc:
+
+include::../../../target/dependency/**/_testinclude.adoc[]
