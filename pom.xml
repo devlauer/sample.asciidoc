@@ -4,7 +4,6 @@
 	<artifactId>sample.asciidoc</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
-
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
@@ -12,22 +11,20 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<asciidoctor.maven.plugin.version>2.2.2</asciidoctor.maven.plugin.version>
 		<asciidoctorj.version>2.5.6</asciidoctorj.version>
-		<asciidoclet.version>2.0.2</asciidoclet.version>
+		<asciidoclet.version>2.0.3</asciidoclet.version>
 		<jruby.version>9.3.8.0</jruby.version>
 		<asciidoctorj.diagram.version>2.2.3</asciidoctorj.diagram.version>
-		<docconverter.version>1.0.2</docconverter.version>
+		<docconverter.version>1.0.1</docconverter.version>
 		<plantumlgenerator.version>1.5.4</plantumlgenerator.version>
 		<asciidoc-extensions.version>1.0.0</asciidoc-extensions.version>
 		<remoteplantuml>http://www.plantuml.com/plantuml/png/</remoteplantuml>
 	</properties>
-
 	<modules>
 		<module>project1</module>
 		<module>project2</module>
 		<module>project3</module>
 		<module>project4</module>
 	</modules>
-
 	<profiles>
 		<profile>
 			<id>asciidoc-generate</id>
@@ -137,7 +134,6 @@
 							</dependency>
 						</dependencies>
 					</plugin>
-
 				</plugins>
 			</build>
 		</profile>
@@ -247,53 +243,51 @@
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-javadoc-plugin</artifactId>
 						<version>3.4.1</version>
+						<configuration>
+							<source>1.8</source>
+							<doclet>org.asciidoctor.Asciidoclet</doclet>
+							<docletArtifact>
+								<groupId>de.elnarion.asciidoc</groupId>
+								<artifactId>asciidoclet</artifactId>
+								<version>${asciidoclet.version}</version>
+							</docletArtifact>
+							<additionalDependencies>
+								<dependency>
+									<groupId>de.elnarion.asciidoc</groupId>
+									<artifactId>asciidoc-extension-multiinclude</artifactId>
+									<version>${asciidoc-extensions.version}</version>
+								</dependency>
+								<dependency>
+									<groupId>de.elnarion.asciidoc</groupId>
+									<artifactId>asciidoc-extension-remoteplantuml</artifactId>
+									<version>${asciidoc-extensions.version}</version>
+								</dependency>
+							</additionalDependencies>
+							<additionalOptions>
+								<additionalOption>--base-dir ${project.basedir}</additionalOption>
+								<additionalOption>--attribute "project_name=${project.name}"</additionalOption>
+								<additionalOption>--attribute "project_version=${project.version}"</additionalOption>
+								<additionalOption>--attribute "project_desc=${project.description}"</additionalOption>
+								<additionalOption>--attribute "remote_plantuml_url=${remoteplantuml}"</additionalOption>
+							</additionalOptions>
+							<overview>src/main/java/overview.adoc</overview> 
+						</configuration>
+						<!-- Exports javadocs containing AsciiDoc to HTML -->
 						<executions>
-							<!-- Exports javadocs containing AsciiDoc to HTML -->
-							<execution>
-								<id>html</id>
-								<phase>package</phase>
-								<goals>
-									<goal>javadoc</goal>
-								</goals>
-								<configuration>
-									<source>1.8</source>
-									<doclet>org.asciidoctor.Asciidoclet</doclet>
-									<docletArtifact>
-										<groupId>de.elnarion.asciidoc</groupId>
-										<artifactId>asciidoclet</artifactId>
-										<version>${asciidoclet.version}</version>
-									</docletArtifact>
-									<additionalDependencies>
-										<dependency>
-											<groupId>de.elnarion.asciidoc</groupId>
-											<artifactId>asciidoc-extension-multiinclude</artifactId>
-											<version>${asciidoc-extensions.version}</version>
-										</dependency>
-										<dependency>
-											<groupId>de.elnarion.asciidoc</groupId>
-											<artifactId>asciidoc-extension-remoteplantuml</artifactId>
-											<version>${asciidoc-extensions.version}</version>
-										</dependency>
-									</additionalDependencies>
-									<overview>src/main/java/overview.adoc</overview>
-									<additionalparam>
-										--base-dir ${project.basedir}
-										--attribute
-										"name=${project.name}"
-										--attribute "version=${project.version}"
-										--attribute "title-link=http://example.com[${project.name}${project.version}]"
-										--attribute "remote_plantuml_url=${remoteplantuml}"
-									</additionalparam>
-								</configuration>
-							</execution>
 							<!-- Exports javadocs containing AsciiDoc to AsciiDoc files -->
+							<execution>
+								<id>attach-javadocs</id>
+								<goals>
+									<goal>jar</goal>
+								</goals>
+							</execution>
 							<execution>
 								<id>asciidoc</id>
 								<phase>package</phase>
 								<goals>
 									<goal>javadoc</goal>
 								</goals>
-								<configuration>
+								<configuration combine.self="override">
 									<doclet>org.uniknow.asciidoc.ExportDoclet</doclet>
 									<docletArtifact>
 										<groupId>org.uniknow.asciidoc</groupId>
@@ -311,6 +305,29 @@
 			</build>
 		</profile>
 	</profiles>
-
-
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-toolchains-plugin</artifactId>
+				<version>3.1.0</version>
+				<configuration>
+					<toolchains>
+						<!-- this project needs a JDK toolchain, version 15 -->
+						<jdk>
+							<version>8</version>
+						</jdk>
+					</toolchains>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>toolchain</goal>
+						</goals>
+						<!-- the toolchain goal binds to the validate phase automatically -->
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 </project>
