@@ -6,3 +6,8 @@ include::../../../target/dependency/project2.adoc[]
 Included via final.adoc:
 
 include::../../../target/dependency/**/_testinclude.adoc[]
+
+
+This is an included javadoc from project1:
+
+include::../../../target/dependency/javadoc/de/elnarion/sample/asciidoc/TestAsciidocClass.ad[]

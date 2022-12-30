@@ -283,7 +283,7 @@
 							</execution>
 							<execution>
 								<id>asciidoc</id>
-								<phase>package</phase>
+								<phase>process-test-classes</phase>
 								<goals>
 									<goal>javadoc</goal>
 								</goals>
