@@ -2,6 +2,13 @@ package de.elnarion.sample.domain;
 
 /**
  * The Class BaseDomainClass.
+ * 
+ * * a list
+ * ** sublist
+ * * second list point
+ * * third list point
+ * 
+ * 
  */
 public abstract class BaseDomainClass implements DomainInterface{
 
