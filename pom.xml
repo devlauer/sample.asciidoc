@@ -246,11 +246,38 @@
 						<configuration>
 							<source>1.8</source>
 							<doclet>org.asciidoctor.Asciidoclet</doclet>
-							<docletArtifact>
-								<groupId>de.elnarion.asciidoc</groupId>
-								<artifactId>asciidoclet</artifactId>
-								<version>${asciidoclet.version}</version>
-							</docletArtifact>
+							<docletArtifacts>
+								<docletArtifact>
+									<groupId>de.elnarion.asciidoc</groupId>
+									<artifactId>asciidoclet</artifactId>
+									<version>${asciidoclet.version}</version>
+								</docletArtifact>
+								<docletArtifact>
+									<groupId>com.google.guava</groupId>
+									<artifactId>guava</artifactId>
+									<version>31.1-jre</version>
+								</docletArtifact>
+								<docletArtifact>
+									<groupId>com.google.guava</groupId>
+									<artifactId>guava</artifactId>
+									<version>31.1-jre</version>
+								</docletArtifact>
+								<docletArtifact>
+									<groupId>org.asciidoctor</groupId>
+									<artifactId>asciidoctorj</artifactId>
+									<version>2.5.7</version>
+								</docletArtifact>
+								<docletArtifact>
+									<groupId>org.asciidoctor</groupId>
+									<artifactId>asciidoctorj-api</artifactId>
+									<version>2.5.7</version>
+								</docletArtifact>
+								<docletArtifact>
+									<groupId>org.jruby</groupId>
+									<artifactId>jruby-complete</artifactId>
+									<version>9.4.2.0</version>
+								</docletArtifact>
+							</docletArtifacts>
 							<additionalDependencies>
 								<dependency>
 									<groupId>de.elnarion.asciidoc</groupId>
@@ -270,7 +297,7 @@
 								<additionalOption>--attribute "project_desc=${project.description}"</additionalOption>
 								<additionalOption>--attribute "remote_plantuml_url=${remoteplantuml}"</additionalOption>
 							</additionalOptions>
-							<overview>src/main/java/overview.adoc</overview> 
+							<overview>src/main/java/overview.adoc</overview>
 						</configuration>
 						<!-- Exports javadocs containing AsciiDoc to HTML -->
 						<executions>
