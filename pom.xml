@@ -255,12 +255,12 @@
 								<docletArtifact>
 									<groupId>com.google.guava</groupId>
 									<artifactId>guava</artifactId>
-									<version>31.1-jre</version>
+									<version>32.1.2-jre</version>
 								</docletArtifact>
 								<docletArtifact>
 									<groupId>com.google.guava</groupId>
 									<artifactId>guava</artifactId>
-									<version>31.1-jre</version>
+									<version>32.1.2-jre</version>
 								</docletArtifact>
 								<docletArtifact>
 									<groupId>org.asciidoctor</groupId>
