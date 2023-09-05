@@ -15,7 +15,7 @@
 		<jruby.version>9.4.3.0</jruby.version>
 		<asciidoctorj.diagram.version>2.2.11</asciidoctorj.diagram.version>
 		<docconverter.version>1.0.2</docconverter.version>
-		<plantumlgenerator.version>2.2.1</plantumlgenerator.version>
+		<plantumlgenerator.version>2.2.4</plantumlgenerator.version>
 		<asciidoc-extensions.version>1.0.2</asciidoc-extensions.version>
 		<remoteplantuml>http://www.plantuml.com/plantuml/png/</remoteplantuml>
 	</properties>
