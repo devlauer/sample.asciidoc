@@ -10,4 +10,4 @@ include::../../../target/dependency/**/_testinclude.adoc[]
 
 This is an included javadoc from project1:
 
-include::../../../target/dependency/javadoc/de/elnarion/sample/asciidoc/TestAsciidocClass.ad[]
+JAVADOC Include does not work anymore

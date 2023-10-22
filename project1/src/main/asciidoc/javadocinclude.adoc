@@ -1,1 +1,1 @@
-include::../../../target/adoc/javadoc/de/elnarion/sample/asciidoc/TestAsciidocClass.ad[]
+NOT SUPPORTED ANYMORE
