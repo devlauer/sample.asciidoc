@@ -45,7 +45,7 @@
                                 <additionalPlantUmlConfigs>left to right direction</additionalPlantUmlConfigs>
                             </additionalPlantUmlConfigs>
                             <outputFilename>testdiagram1.txt</outputFilename>
-                            <whitelistRegexp>.*[Child|Student].*</whitelistRegexp>
+                            <whitelistRegexp>.*(Child|Student).*</whitelistRegexp>
                             <hideFields>true</hideFields>
                             <hideMethods>true</hideMethods>
                             <enableAsciidocWrapper>false</enableAsciidocWrapper>
