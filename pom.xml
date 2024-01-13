@@ -14,7 +14,7 @@
 		<asciidoclet.version>2.0.4</asciidoclet.version>
 		<jruby.version>9.4.5.0</jruby.version>
 		<docconverter.version>1.0.2</docconverter.version>
-		<plantumlgenerator.version>2.4.0</plantumlgenerator.version>
+		<plantumlgenerator.version>2.4.1</plantumlgenerator.version>
 		<asciidoc-extensions.version>1.0.3</asciidoc-extensions.version>
 		<remoteplantuml>http://www.plantuml.com/plantuml/png/</remoteplantuml>
 	</properties>
