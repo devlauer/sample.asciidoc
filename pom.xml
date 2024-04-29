@@ -12,7 +12,7 @@
 		<asciidoctor.maven.plugin.version>2.2.6</asciidoctor.maven.plugin.version>
 		<asciidoctorj.version>2.5.12</asciidoctorj.version>
 		<asciidoclet.version>2.0.4</asciidoclet.version>
-		<jruby.version>9.4.6.0</jruby.version>
+		<jruby.version>9.4.7.0</jruby.version>
 		<docconverter.version>1.0.10</docconverter.version>
 		<plantumlgenerator.version>2.4.1</plantumlgenerator.version>
 		<asciidoc-extensions.version>1.0.3</asciidoc-extensions.version>
